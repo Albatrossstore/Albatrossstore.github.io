@@ -490,8 +490,13 @@ document.addEventListener('DOMContentLoaded', () => {
                     observer.unobserve(entry.target);
                 }
             });
-        }, { threshold: 0.95 });
+        }, { threshold: 0.1 });
         observer.observe(header);
+        setTimeout(() => {
+            if (!header.classList.contains('header-in-view')) {
+                header.classList.add('header-in-view');
+            }
+        }, 150);
     };
 
     const initMobileMenu = () => {
