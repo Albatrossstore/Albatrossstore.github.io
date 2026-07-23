@@ -1,0 +1,41 @@
+<header class="site-header">
+    <div class="header-container">
+        <div class="logo-wrapper">
+            <!-- WRAPPED the image in an anchor tag pointing to the home page -->
+            <a href="/index.html">
+                <img src="/images/Lolo.png/Lolo.png" alt="Albatross Small Logo" class="header-logo">
+            </a>
+        </div>
+
+        <h1 class="mobile-header-title">Albatross</h1>
+
+        <div class="search-wrapper">
+            <div class="search-container">
+                <input type="text" placeholder="Search product categories..." class="product-search-input">
+                <button class="search-button" aria-label="Search">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                    </svg>
+                </button>
+            </div>
+            <div id="suggestions-wrapper"></div>
+        </div>
+        
+        <button id="mobile-menu-button" class="mobile-menu-toggle" aria-label="Toggle Navigation" aria-expanded="false">
+            <span class="hamburger-icon"></span>
+        </button>
+
+        <nav id="main-nav-menu" class="main-nav">
+            <ul>
+                <!-- All links start with '/' to work from any page -->
+                <li><a href="/index.html">Home</a></li>
+                <li><a href="/categories/html/Trending-Products.html">Trending Products</a></li>
+                <li><a href="/categories/html/Smart-Gadgets.html">Smart Gadgets</a></li>
+                <li><a href="/categories/html/Tools-and-Fixing.html">Tools and Fixing</a></li>
+                <li><a href="/categories/html/Home-and-Garden.html">Home and Garden</a></li>
+                <li><a href="/categories/html/blog.html">Blog</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>

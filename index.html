@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Albatross - Elevate Your Shopping Experience</title>
+    <link rel="icon" type="image/png" href="images/Lolo.png/Lolo.png">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Allura&family=Courgette&family=Permanent+Marker&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Allura&family=Courgette&family=Lato:wght@400;700&family=Permanent+Marker&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Courgette&family=Eater&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Kite+One&family=Mystery+Quest&family=Permanent+Marker&family=Rubik+Storm&family=Rye&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+<!-- CORRECTED header.html -->
+<header class="site-header">
+    <div class="header-container">
+        <div class="logo-wrapper">
+            <!-- PATH FIXED: Starts with '/' to work from any page -->
+            <img src="/images/Lolo.png/Lolo.png" alt="Albatross Small Logo" class="header-logo">
+        </div>
+
+        <h1 class="mobile-header-title">Albatross</h1>
+
+        <div class="search-wrapper">
+            <div class="search-container">
+                <input type="text" placeholder="Search product categories..." class="product-search-input">
+                <button class="search-button" aria-label="Search">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                    </svg>
+                </button>
+            </div>
+            <div id="suggestions-wrapper"></div>
+        </div>
+        
+        <button id="mobile-menu-button" class="mobile-menu-toggle" aria-label="Toggle Navigation" aria-expanded="false">
+            <span class="hamburger-icon"></span>
+        </button>
+
+        <nav id="main-nav-menu" class="main-nav">
+            <ul>
+                <!-- PATHS FIXED: All links should start with '/' -->
+                <li><a href="/index.html">Home</a></li>
+                <li><a href="/categories/html/Trending-Products.html">Trending Products</a></li>
+                <li><a href="/categories/html/Smart-Gadgets.html">Smart Gadgets</a></li>
+                <li><a href="/categories/html/Tools-and-Fixing.html">Tools and Fixing</a></li>
+                <li><a href="/categories/html/Home-and-Garden.html">Home and Garden</a></li>
+                <li><a href="/categories/html/blog.html">Blog</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+    <main class="hero-carousel-section">
+        <div class="hero-carousel-header">
+            <div class="hero-header-left">
+                <p class="hero-header-label">Hot Products</p>
+                <h1 class="hero-header-title">Popular Deals This Week</h1>
+            </div>
+            <div class="hero-header-right">
+                <span class="hero-header-live-dot"></span>
+                <span class="hero-header-live-text">Popular now</span>
+            </div>
+        </div>
+
+        <div class="hero-carousel-shell">
+            <button class="hero-carousel-nav prev" id="carousel-prev" aria-label="Previous products">
+                <span class="hero-carousel-nav-icon" aria-hidden="true">➺</span>
+            </button>
+            <div class="hero-carousel-viewport">
+                <div id="hero-carousel-track" class="hero-carousel-track">
+                    <div class="loader-container">
+                        <span class="loader"></span>
+                    </div>
+                </div>
+            </div>
+            <button class="hero-carousel-nav next" id="carousel-next" aria-label="Next products">
+                <span class="hero-carousel-nav-icon" aria-hidden="true">➺</span>
+            </button>
+        </div>
+        <div id="carousel-dots" class="hero-carousel-dots" aria-label="Carousel pages"></div>
+    </main>
+
+    <section class="home-section" id="under-10-deals">
+        <h2 class="home-section-title">Under $10 Deals</h2>
+        <hr class="home-section-divider">
+        <div id="under-10-deals-grid" class="home-section-grid">
+            <div class="loader-container">
+                <span class="loader"></span>
+            </div>
+        </div>
+    </section>
+
+    <section class="home-section" id="new-arrivals">
+        <h2 class="home-section-title">New Arrivals</h2>
+        <hr class="home-section-divider">
+        <div id="new-arrivals-grid" class="home-section-grid">
+            <div class="loader-container">
+                <span class="loader"></span>
+            </div>
+        </div>
+    </section>
+
+    <section class="home-section" id="limited-time-offers">
+        <h2 class="home-section-title">Limited Time Offers</h2>
+        <hr class="home-section-divider">
+        <div id="limited-time-offers-grid" class="home-section-grid">
+            <div class="loader-container">
+                <span class="loader"></span>
+            </div>
+        </div>
+    </section>
+
+    <section class="home-section" id="top-rated">
+        <h2 class="home-section-title">Top Rated</h2>
+        <hr class="home-section-divider">
+        <div id="top-rated-grid" class="home-section-grid">
+            <div class="loader-container">
+                <span class="loader"></span>
+            </div>
+        </div>
+    </section>
+
+    <script src="sheets-data.js"></script>
+   
+
+    <footer class="site-footer-container">
+        <div class="footer-content">
+            <p class="footer-notice">Heads up! You're now being redirected to the purchase site. Remember, we're just the middleman—happy shopping!</p>
+            <p class="footer-follow">please follow us</p>
+        </div>
+        <hr class="footer-divider">
+        <div class="social-icons">
+            <a href="#" aria-label="Instagram"><img src="images/icons/instagram.png" alt="Instagram"></a>
+            <a href="#" aria-label="TikTok"><img src="images/icons/tiktok.png" alt="TikTok"></a>
+            <a href="#" aria-label="YouTube"><img src="images/icons/youtube.png" alt="YouTube"></a>
+            <a href="#" aria-label="Facebook"><img src="images/icons/facebook.png" alt="Facebook"></a>
+            <a href="#" aria-label="X"><img src="images/icons/x.png" alt="X"></a>
+        </div>
+    </footer>
+
+</body>
+</html>
