@@ -8,6 +8,43 @@ document.addEventListener('DOMContentLoaded', () => {
     const carouselDots = document.getElementById('carousel-dots');
     const carouselViewport = document.querySelector('.hero-carousel-viewport');
 
+    const initHeaderLogoLoadGuard = () => {
+        const logo = document.querySelector('.header-logo');
+        if (!logo) return;
+
+        const candidateSources = [
+            new URL('/images/Lolo.png/albatross.png', window.location.origin).href,
+            new URL('images/Lolo.png/albatross.png', document.baseURI).href,
+            new URL('../../images/Lolo.png/albatross.png', document.baseURI).href
+        ].filter((src, index, list) => list.indexOf(src) === index);
+
+        logo.setAttribute('decoding', 'async');
+        logo.setAttribute('fetchpriority', 'high');
+
+        let candidateIndex = 0;
+        const loadNextCandidate = () => {
+            if (candidateIndex >= candidateSources.length) return;
+
+            const nextSrc = candidateSources[candidateIndex];
+            candidateIndex += 1;
+
+            const probe = new Image();
+            probe.onload = () => {
+                logo.src = nextSrc;
+            };
+            probe.onerror = loadNextCandidate;
+            probe.src = nextSrc;
+        };
+
+        logo.addEventListener('error', loadNextCandidate);
+
+        window.setTimeout(() => {
+            if (!logo.complete || logo.naturalWidth === 0) {
+                loadNextCandidate();
+            }
+        }, 700);
+    };
+
     const createHomeCardHtml = (data) => {
         const badgeHtml = data.badge ? `<span class="home-card-badge">${data.badge}</span>` : '';
         const desc = data.description && data.description.trim() ? data.description : 'Check price and details now.';
@@ -433,11 +470,7 @@ document.addEventListener('DOMContentLoaded', () => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('in-view');
-                } else {
-                    entry.target.classList.remove('in-view');
-                    const fromLeft = entry.target.dataset.startSide === 'left';
-                    entry.target.style.transform = `translateX(${fromLeft ? '-120px' : '120px'})`;
-                    entry.target.style.opacity = '0';
+                    observer.unobserve(entry.target);
                 }
             });
         }, { rootMargin: '0px 0px -20% 0px', threshold: 0 });
@@ -448,7 +481,6 @@ document.addEventListener('DOMContentLoaded', () => {
         window.addEventListener('resize', () => {
             clearTimeout(resizeTimer);
             resizeTimer = setTimeout(() => {
-                cards.forEach(c => c.classList.remove('in-view'));
                 setCardPositions();
             }, 200);
         });
@@ -524,8 +556,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     socialIcons.forEach((icon, index) => {
                         icon.style.animationDelay = `${400 + index * 80}ms`;
                     });
-                } else {
-                    entry.target.classList.remove('in-view');
+                    observer.unobserve(entry.target);
                 }
             });
         }, { threshold: 0.2 });
@@ -600,6 +631,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initLimitedTimeOffers();
     initTopRated();
     initTitleAnimation();
+    initHeaderLogoLoadGuard();
     initHeaderAnimation();
     initMobileMenu();
     initFooterAnimation();
