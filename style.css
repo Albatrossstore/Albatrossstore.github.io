@@ -387,8 +387,8 @@ body {
 
 /* --- Hero Carousel Section --- */
 .hero-carousel-section {
-    width: 85%;
-    max-width: 1300px;
+    width: 90%;
+    max-width: 1400px;
     margin: 40px auto 50px auto;
     padding: 22px 20px 20px 20px;
     position: relative;
@@ -685,10 +685,10 @@ body {
 
 /* --- Home Section Styles (4 new sections) --- */
 .home-section {
-    width: 85%;
-    max-width: 1300px;
+    width: 90%;
+    max-width: 1400px;
     margin: 30px auto 0 auto;
-    padding: 40px;
+    padding: 40px 0;
     text-align: left;
 }
 
@@ -747,7 +747,7 @@ body {
 .home-section-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 24px;
+    gap: 30px;
 }
 
 /* --- Product Card --- */
@@ -1144,7 +1144,7 @@ MOBILE MENU AND RESPONSIVE STYLES
 
     .hero-carousel-section {
         margin-top: 24px;
-        width: 94%;
+        width: 90%;
         padding: 16px 10px 14px 10px;
     }
 
@@ -1214,7 +1214,28 @@ MOBILE MENU AND RESPONSIVE STYLES
 
     .home-section-grid {
         grid-template-columns: repeat(2, 1fr);
-        gap: 12px;
+        gap: 8px;
+    }
+
+    .home-section {
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    .home-card {
+        padding: 0;
+    }
+
+    .home-card-body {
+        padding: 10px 10px 12px 10px;
+    }
+
+    .home-card-title {
+        font-size: 1.05rem;
+    }
+
+    .home-card-desc {
+        font-size: 0.82rem;
     }
 
     .footer-notice {
@@ -1235,6 +1256,17 @@ MOBILE MENU AND RESPONSIVE STYLES
     }
 }
 
+
+@media (max-width: 480px) {
+    html {
+        overflow-x: clip;
+    }
+
+    .hero-carousel-viewport {
+        overflow: hidden;
+        max-width: 100%;
+    }
+}
 
 @media (max-width: 420px) {
     .hero-carousel-nav {
